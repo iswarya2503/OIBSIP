@@ -4,8 +4,6 @@ import csv
 import os
 import matplotlib.pyplot as plt
 
-
-# ---------------------- Calculate BMI ----------------------
 def calculate_bmi():
     try:
         name = name_entry.get()
@@ -63,7 +61,6 @@ def calculate_bmi():
     except Exception as e:
         messagebox.showerror("File Error", f"Unable to save record.\n\n{e}")
 
-# ---------------------- Clear Fields ----------------------
 def clear_fields():
     name_entry.delete(0, tk.END)
     weight_entry.delete(0, tk.END)
@@ -71,7 +68,6 @@ def clear_fields():
     result_label.config(text="")
 
 
-    # ---------------------- Show Graph ----------------------
 def show_graph():
 
     if not os.path.exists("bmi_records.csv"):
@@ -100,7 +96,7 @@ def show_graph():
 
     plt.show()
 
-# ---------------------- View Records ----------------------
+
 
 def view_records():
 
@@ -142,14 +138,13 @@ def view_records():
             "File Error",
             f"Unable to read records.\n\n{e}"
         )
-# ---------------------- Main Window ----------------------
+
 window = tk.Tk()
 window.title("BMI Calculator")
 window.geometry("450x600")
 window.configure(bg="#E8F6F3")
 
 
-# ---------------------- Heading ----------------------
 title = tk.Label(
     window,
     text="BMI CALCULATOR",
@@ -160,7 +155,6 @@ title = tk.Label(
 title.pack(pady=20)
 
 
-# ---------------------- Name ----------------------
 name_label = tk.Label(
     window,
     text="Name",
@@ -177,7 +171,7 @@ name_entry = tk.Entry(
 name_entry.pack(pady=5)
 
 
-# ---------------------- Weight ----------------------
+
 weight_label = tk.Label(
     window,
     text="Weight (kg)",
@@ -194,7 +188,7 @@ weight_entry = tk.Entry(
 weight_entry.pack(pady=5)
 
 
-# ---------------------- Height ----------------------
+
 height_label = tk.Label(
     window,
     text="Height (m)",
@@ -211,7 +205,7 @@ height_entry = tk.Entry(
 height_entry.pack(pady=5)
 
 
-# ---------------------- Calculate Button ----------------------
+
 calculate_button = tk.Button(
     window,
     text="Calculate BMI",
@@ -224,7 +218,6 @@ calculate_button = tk.Button(
 calculate_button.pack(pady=10)
 
 
-# ---------------------- Clear Button ----------------------
 clear_button = tk.Button(
     window,
     text="Clear",
@@ -237,7 +230,6 @@ clear_button = tk.Button(
 clear_button.pack(pady=5)
 
 
-# ---------------------- View Records Button ----------------------
 view_button = tk.Button(
     window,
     text="View Records",
@@ -261,7 +253,6 @@ graph_button = tk.Button(
 graph_button.pack(pady=5)
 
 
-# ---------------------- Result ----------------------
 result_label = tk.Label(
     window,
     text="",
